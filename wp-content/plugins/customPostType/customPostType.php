@@ -136,7 +136,7 @@ function custom_post_type() {
             'search_items'        => __( 'Search Film', 'united' ),
             'not_found'           => __( 'Not Found', 'united' ),
             'not_found_in_trash'  => __( 'Not found in Trash', 'united' ),
-        );         
+        );
         $args = array(
             'label'               => __( 'Films', 'united' ),
             'description'         => __( 'Film news and reviews', 'united' ),
@@ -155,7 +155,7 @@ function custom_post_type() {
             'exclude_from_search' => false,
             'publicly_queryable'  => true,
             'capability_type'     => 'page',
-        );   
+        );
         register_post_type( 'Films', $args );
     }
     add_action( 'init', 'create_genre_nonhierarchical_taxonomy', 0 );
@@ -163,5 +163,17 @@ function custom_post_type() {
     add_action( 'init', 'create_Year_nonhierarchical_taxonomy', 0 );
     add_action( 'init', 'create_Actor_nonhierarchical_taxonomy', 0 );
     add_action( 'init', 'custom_post_type', 0 );
+
+    function taxonomy_after_content($content) {
+        if(is_archive()) {
+            $content.= "<b>Country:</b> " . get_the_term_list(get_the_ID(), 'Country', '', ', ', '' );
+            $content.= " | <b>Genre:</b> " . get_the_term_list(get_the_ID(), 'Genre', '', ', ', '' );
+            $content.= " | <b>Release Date:</b> " . get_post_meta(get_the_ID(), 'Release Date', TRUE);
+            $content.= " | <b>Ticket Price:</b> " . get_post_meta(get_the_ID(), 'Ticket Price', TRUE);
+            }
+        return $content;
+       }
+    add_filter ('the_content', 'taxonomy_after_content');
+
 
 ?>
