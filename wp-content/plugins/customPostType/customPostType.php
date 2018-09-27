@@ -13,7 +13,7 @@ function create_genre_nonhierarchical_taxonomy() {
     'all_items' => __( 'All Genre' ),
     'parent_item' => null,
     'parent_item_colon' => null,
-    'edit_item' => __( 'Edit Genre' ),
+    'edit_item' => __( 'Edit Genre' ), 
     'update_item' => __( 'Update Genre' ),
     'add_new_item' => __( 'Add New Genre' ),
     'new_item_name' => __( 'New Genre Name' ),
@@ -21,7 +21,7 @@ function create_genre_nonhierarchical_taxonomy() {
     'add_or_remove_items' => __( 'Add or remove Genre' ),
     'choose_from_most_used' => __( 'Choose from the most used Genre' ),
     'menu_name' => __( 'Genre' ),
-  );
+  );  
   register_taxonomy('Genre','Films',array(
     'hierarchical' => false,
     'labels' => $labels,
@@ -41,7 +41,7 @@ function create_Country_nonhierarchical_taxonomy() {
       'all_items' => __( 'All Country' ),
       'parent_item' => null,
       'parent_item_colon' => null,
-      'edit_item' => __( 'Edit Country' ),
+      'edit_item' => __( 'Edit Country' ), 
       'update_item' => __( 'Update Country' ),
       'add_new_item' => __( 'Add New Country' ),
       'new_item_name' => __( 'New Country Name' ),
@@ -49,7 +49,7 @@ function create_Country_nonhierarchical_taxonomy() {
       'add_or_remove_items' => __( 'Add or remove Country' ),
       'choose_from_most_used' => __( 'Choose from the most used Country' ),
       'menu_name' => __( 'Country' ),
-    );
+    ); 
     register_taxonomy('Country','Films',array(
       'hierarchical' => false,
       'labels' => $labels,
@@ -69,7 +69,7 @@ function create_Country_nonhierarchical_taxonomy() {
       'all_items' => __( 'All Year' ),
       'parent_item' => null,
       'parent_item_colon' => null,
-      'edit_item' => __( 'Edit Year' ),
+      'edit_item' => __( 'Edit Year' ), 
       'update_item' => __( 'Update Year' ),
       'add_new_item' => __( 'Add New Year' ),
       'new_item_name' => __( 'New Year Name' ),
@@ -77,9 +77,9 @@ function create_Country_nonhierarchical_taxonomy() {
       'add_or_remove_items' => __( 'Add or remove Year' ),
       'choose_from_most_used' => __( 'Choose from the most used Year' ),
       'menu_name' => __( 'Year' ),
-    );
-
-
+    ); 
+   
+   
     register_taxonomy('Year','Films',array(
       'hierarchical' => false,
       'labels' => $labels,
@@ -99,7 +99,7 @@ function create_Country_nonhierarchical_taxonomy() {
       'all_items' => __( 'All Actor' ),
       'parent_item' => null,
       'parent_item_colon' => null,
-      'edit_item' => __( 'Edit Actor' ),
+      'edit_item' => __( 'Edit Actor' ), 
       'update_item' => __( 'Update Actor' ),
       'add_new_item' => __( 'Add New Actor' ),
       'new_item_name' => __( 'New Actor Name' ),
@@ -107,9 +107,9 @@ function create_Country_nonhierarchical_taxonomy() {
       'add_or_remove_items' => __( 'Add or remove Actor' ),
       'choose_from_most_used' => __( 'Choose from the most used Actor' ),
       'menu_name' => __( 'Actor' ),
-    );
-
-
+    ); 
+   
+   
     register_taxonomy('Actor','Films',array(
       'hierarchical' => false,
       'labels' => $labels,
@@ -136,7 +136,7 @@ function custom_post_type() {
             'search_items'        => __( 'Search Film', 'united' ),
             'not_found'           => __( 'Not Found', 'united' ),
             'not_found_in_trash'  => __( 'Not found in Trash', 'united' ),
-        );
+        );         
         $args = array(
             'label'               => __( 'Films', 'united' ),
             'description'         => __( 'Film news and reviews', 'united' ),
@@ -155,13 +155,13 @@ function custom_post_type() {
             'exclude_from_search' => false,
             'publicly_queryable'  => true,
             'capability_type'     => 'page',
-        );
+        );   
         register_post_type( 'Films', $args );
     }
     add_action( 'init', 'create_genre_nonhierarchical_taxonomy', 0 );
     add_action( 'init', 'create_Country_nonhierarchical_taxonomy', 0 );
     add_action( 'init', 'create_Year_nonhierarchical_taxonomy', 0 );
-    add_action( 'init', 'create_Actor_nonhierarchical_taxonomy', 0 );
+    add_action( 'init', 'create_Actor_nonhierarchical_taxonomy', 0 );  
     add_action( 'init', 'custom_post_type', 0 );
 
     function taxonomy_after_content($content) {
@@ -175,7 +175,7 @@ function custom_post_type() {
        }
     add_filter ('the_content', 'taxonomy_after_content');
 
-    add_filter('widget_posts_args', 'widget_posts_args_add_custom_type');
+    add_filter('widget_posts_args', 'widget_posts_args_add_custom_type'); 
 function widget_posts_args_add_custom_type($params) {
    $params['post_type'] = array('Films');
    return $params;
