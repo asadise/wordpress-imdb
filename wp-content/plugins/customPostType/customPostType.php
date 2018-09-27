@@ -175,5 +175,9 @@ function custom_post_type() {
        }
     add_filter ('the_content', 'taxonomy_after_content');
 
-
+    add_filter('widget_posts_args', 'widget_posts_args_add_custom_type');
+function widget_posts_args_add_custom_type($params) {
+   $params['post_type'] = array('Films');
+   return $params;
+}
 ?>
