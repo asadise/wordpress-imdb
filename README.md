@@ -8,6 +8,6 @@ this repository is just a WordPress site that fully customized to be a website a
 ***
 you can see Demo [Here](http://mydemos.byethost7.com/wp)
 ##### Admin area info:
-username: `admin`
-
-password: `admin`
+> username: `admin`
+>
+> password: `admin`
