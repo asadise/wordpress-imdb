@@ -6,7 +6,8 @@ this repository is just a WordPress site that fully customized to be a website a
 - in this site, we need a new post type named **Films** to separate blog posts from Films posts. so I write a plugin for this new post type.
 - at last, we need 2 custom fields for **Release Date** and **Ticket Price:** and I add these wp-admin and in WordPress front theme.
 ***
-you can see Demo [Here](http://mydemos.byethost7.com/wp){:target="_blank"}
+you can see Demo [Here](http://mydemos.byethost7.com/wp)
 ##### Admin area info:
 username: `admin`
+
 password: `admin`
